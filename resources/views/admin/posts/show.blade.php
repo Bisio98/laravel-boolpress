@@ -3,6 +3,13 @@
 @section('content')
     <h2>{{$post->title}}</h2>
 
+    <div class="mt-3">Slug-> {{$post->slug}}</div>
+    
+    @if ($post->category)
+        <div class="mt-3">Category-> {{$post->category->name}}</div>
+    @endif
+    
+
     <p>{{$post->content}}</p>
 
     <div>
