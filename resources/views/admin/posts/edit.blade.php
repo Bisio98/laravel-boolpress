@@ -24,18 +24,34 @@
         </div>
 
         <div class="form-group mb-3">
-            <label class="form-label" for="category_id">Category</label>
-            <select id="category_id" name="category_id" class="form-select">
-              <option value="">Nessuna</option>
+          <label class="form-label" for="category_id">Category</label>
+          <select id="category_id" name="category_id" class="form-select">
+            <option value="">Nessuna</option>
               @foreach ($categories as $category)
                 <option value="{{$category->id}}" {{$post->category && old('category_id', $post->category->id) == $category->id ? 'selected' : ''}}>{{$category->name}}</option>
               @endforeach
-            </select>
-          </div>
+          </select>
+        </div>
+
+        <div class="form-group mb-3">
+          <h5>Tags</h5>
+          @foreach ($tags as $tag)
+            <div class="form-check">
+              @if ($errors->any())
+                <input {{ in_array($tag->id, old('tags' , [])) }} class="form-check-input" name="tags[]" type="checkbox" value="{{$tag->id}}" id="tag-{{$tag->id}}">
+              @else
+                <input {{ $post->tags->contains($tag) ? 'checked' : '' }} class="form-check-input" name="tags[]" type="checkbox" value="{{$tag->id}}" id="tag-{{$tag->id}}">
+              @endif
+              <label class="form-check-label" for="tag-{{$tag->id}}">
+                {{$tag->name}}
+              </label>
+            </div>
+          @endforeach
+        </div>
 
         <div class="mb-3">
-            <label for="content" class="form-label">Content</label>
-            <textarea class="form-control" name="content" id="content" cols="30" rows="10">{{ old('content', $post->content) }}</textarea>
+          <label for="content" class="form-label">Content</label>
+          <textarea class="form-control" name="content" id="content" cols="30" rows="10">{{ old('content', $post->content) }}</textarea>
         </div>
 
         <button type="submit" class="btn btn-primary">Save</button>
