@@ -8,6 +8,16 @@
     @if ($post->category)
         <div class="mt-3">Category-> {{$post->category->name}}</div>
     @endif
+
+    @if ($post->tags)
+        <div class="mt-3">Tags->
+            @forelse ($post->tags as $tag)
+                {{ $tag->name}}{{ $loop->last ? '' : ',' }}
+            @empty
+                nessuno
+            @endforelse
+        </div>
+    @endif
     
 
     <p>{{$post->content}}</p>
