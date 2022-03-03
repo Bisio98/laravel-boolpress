@@ -1,20 +1,19 @@
 <template>
-    <Posts/>
+    <div>
+        <Header />
+
+        <main>
+            <router-view></router-view>
+        </main>
+    </div>
 </template>
 
 <script>
-import WorkInProgress from '../components/WorkInProgress.vue'
-import Posts from '../components/Posts.vue'
-
+import Header from '../components/Header.vue';
 export default {
-  components: { 
-    WorkInProgress,
-    Posts
-    },
-    name: 'App'
+    name: 'App',
+    components: {
+        Header
+    }
 }
 </script>
-
-<style lang="scss" scoped>
-
-</style>
