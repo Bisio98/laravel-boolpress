@@ -10,6 +10,9 @@
                             <h5 class="card-title">{{ post.title }}</h5>
                             <p class="card-text">{{ truncateText(post.content, 50) }}</p>
                         </div>
+                        <div class="card-body">
+                            <router-link :to="{ name: 'post-details', params: { slug: post.slug } }">Leggi articolo</router-link>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -19,9 +22,12 @@
                     <li class="page-item" :class="{ 'disabled': currentPage == 1 }">
                         <a @click="getPosts(currentPage - 1)" class="page-link" href="#">Previous</a>
                     </li>
+
                     <li v-for="n in lastPage" :key="n" class="page-item" :class="{ 'active': currentPage == n }">
                         <a @click="getPosts(n)" class="page-link" href="#">{{ n }}</a>
                     </li>
+
+
                     <li class="page-item" :class="{ 'disabled': currentPage == lastPage }">
                         <a @click="getPosts(currentPage + 1)" class="page-link" href="#">Next</a>
                     </li>
