@@ -10,6 +10,7 @@ import PostDetails from './pages/PostDetails.vue';
 import TagDetails from './pages/TagDetails.vue';
 import TagsList from './pages/TagsList.vue';
 import NotFound from './pages/NotFound.vue';
+import Contacts from './pages/Contacts.vue'
 
 const router = new VueRouter({
     mode: "history",
@@ -45,10 +46,16 @@ const router = new VueRouter({
             component: TagDetails
         },
         {
+            path: "/contacts",
+            name: "contacts",
+            component: Contacts
+        },
+        {
             path: "/*",
             name: "not-found",
             component: NotFound
         },
+        
     ]
 });
 
