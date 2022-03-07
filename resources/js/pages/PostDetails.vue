@@ -5,13 +5,8 @@
 
             <div v-if="post.category">Category: {{ post.category.name }}</div>
 
-            <div v-if="post.tags.length > 0">
-                <router-link 
-                v-for="tag in post.tags" 
-                :key="tag.id"
-                class="badge bg-warning text-dark mx-1"
-                :to="{ name: 'tag-details', params: { slug: tag.slug } }"
-                >
+            <div v-if="post.tags && post.tags.length > 0">
+                <router-link v-for="tag in post.tags" :key="tag.id" class="badge bg-warning text-dark mx-1" :to="{ name: 'tag-details', params: { slug: tag.slug } }">
                     {{ tag.name }}
                 </router-link>
             </div>
@@ -26,7 +21,7 @@ export default {
     name: 'PostDetails',
     data: function() {
         return {
-            post: false
+            post: {}
         };
     },
     methods: {
