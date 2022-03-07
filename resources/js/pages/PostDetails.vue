@@ -11,6 +11,8 @@
                 </router-link>
             </div>
 
+            <img v-if="post.cover" :src="post.cover" alt="">
+
             <p>{{ post.content }}</p>
         </div>
     </section>

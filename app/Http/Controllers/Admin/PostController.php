@@ -8,6 +8,7 @@ use App\Post;
 use App\Category;
 use Illuminate\Support\Str;
 use App\Tag;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -59,6 +60,11 @@ class PostController extends Controller
         $new_post->fill($form_data);
         
         $new_post->slug = $this->getUniqueSlugFromTitle($form_data['title']);
+
+        if(isset($form_data['image'])) {
+            $img_path = Storage::put('post_covers', $form_data['image']);
+            $new_post->cover = $img_path;
+        }
 
         $new_post->save();
 
@@ -124,6 +130,14 @@ class PostController extends Controller
         if($form_data['title'] != $post->title) {
             $form_data['slug'] = $this->getUniqueSlugFromTitle($form_data['title']);
         }
+
+        if($form_data['image']) {
+            if($post->cover) {
+                Storage::delete($post->cover);
+            }
+            $img_path = Storage::put('post_covers', $form_data['image']);
+            $form_data['cover'] = $img_path;
+        }
         
         $post->update($form_data);
 
@@ -146,6 +160,9 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
         $post->tags()->sync([]);
+        if($post->cover){
+            Storage::delete($post->cover);
+        }
         $post->delete();
 
         return redirect()->route('admin.posts.index');

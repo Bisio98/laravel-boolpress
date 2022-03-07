@@ -19,6 +19,11 @@
         </div>
     @endif
     
+    <div>
+        @if($post->cover)
+            <img src="{{ asset('storage/' . $post->cover ) }}" alt="">
+        @endif
+    </div>
 
     <p>{{$post->content}}</p>
 
