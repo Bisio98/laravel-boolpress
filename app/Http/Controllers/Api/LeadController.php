@@ -21,18 +21,22 @@ class LeadController extends Controller
         ]);
 
         if ($validator->fails()) {
+            // Errori di validazione
             return response()->json([
                 'success' => false,
                 'errors' => $validator->errors()
             ]);
         }
+
         $new_lead = new Lead();
         $new_lead->fill($data);
         $new_lead->save();
+
         Mail::to('customerservice@boolpress.it')->send(new NewContactMail($new_lead));
 
         return response()->json([
             'success' => true
         ]);
     }
+}
 }

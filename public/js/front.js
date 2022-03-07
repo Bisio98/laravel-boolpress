@@ -3203,11 +3203,9 @@ var render = function () {
   return _c("div", [
     _c("section", [
       _c("div", { staticClass: "container" }, [
-        _c("h1", [_vm._v("Contattaci")]),
+        _c("h1", [_vm._v("Contanct us")]),
         _vm._v(" "),
-        _vm.success
-          ? _c("div", [_vm._v("Grazie per averci contattato, email inviata")])
-          : _vm._e(),
+        _vm.success ? _c("div", [_vm._v("Email sent succesfully")]) : _vm._e(),
         _vm._v(" "),
         _c("form", [
           _c("div", { staticClass: "mb-3" }, [
@@ -19710,8 +19708,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_PostDetails_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/PostDetails.vue */ "./resources/js/pages/PostDetails.vue");
 /* harmony import */ var _pages_TagDetails_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/TagDetails.vue */ "./resources/js/pages/TagDetails.vue");
 /* harmony import */ var _pages_TagsList_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./pages/TagsList.vue */ "./resources/js/pages/TagsList.vue");
-/* harmony import */ var _pages_NotFound_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./pages/NotFound.vue */ "./resources/js/pages/NotFound.vue");
-/* harmony import */ var _pages_Contacts_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./pages/Contacts.vue */ "./resources/js/pages/Contacts.vue");
+/* harmony import */ var _pages_Contacts_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./pages/Contacts.vue */ "./resources/js/pages/Contacts.vue");
+/* harmony import */ var _pages_NotFound_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./pages/NotFound.vue */ "./resources/js/pages/NotFound.vue");
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
@@ -19752,11 +19750,11 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }, {
     path: "/contacts",
     name: "contacts",
-    component: _pages_Contacts_vue__WEBPACK_IMPORTED_MODULE_9__["default"]
+    component: _pages_Contacts_vue__WEBPACK_IMPORTED_MODULE_8__["default"]
   }, {
     path: "/*",
     name: "not-found",
-    component: _pages_NotFound_vue__WEBPACK_IMPORTED_MODULE_8__["default"]
+    component: _pages_NotFound_vue__WEBPACK_IMPORTED_MODULE_9__["default"]
   }]
 });
 /* harmony default export */ __webpack_exports__["default"] = (router);

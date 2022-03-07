@@ -9,8 +9,8 @@ import Blog from './pages/Blog.vue';
 import PostDetails from './pages/PostDetails.vue';
 import TagDetails from './pages/TagDetails.vue';
 import TagsList from './pages/TagsList.vue';
+import Contacts from './pages/Contacts.vue';
 import NotFound from './pages/NotFound.vue';
-import Contacts from './pages/Contacts.vue'
 
 const router = new VueRouter({
     mode: "history",
@@ -55,7 +55,6 @@ const router = new VueRouter({
             name: "not-found",
             component: NotFound
         },
-        
     ]
 });
 

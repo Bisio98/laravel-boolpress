@@ -2,9 +2,9 @@
     <div>
         <section>
             <div class="container">
-                <h1>Contattaci</h1>
+                <h1>Contanct us</h1>
 
-                <div v-if="success">Grazie per averci contattato, email inviata</div>
+                <div v-if="success">Email sent succesfully</div>
 
                 <form>
                     <div class="mb-3">

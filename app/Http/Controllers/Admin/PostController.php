@@ -72,6 +72,8 @@ class PostController extends Controller
             $new_post->tags()->sync($form_data['tags']);
         }
 
+        
+
         return redirect()->route('admin.posts.show', ['post' => $new_post->id]);
     }
 
